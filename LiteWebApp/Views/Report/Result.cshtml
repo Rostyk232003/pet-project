@@ -1,0 +1,45 @@
+@model LiteWebApp.Core.Entities.ReportResult
+@{
+  ViewData["Title"] = "Аналітичний звіт";
+}
+
+<h2>@Model.Title</h2>
+
+@if (Model.Columns.Any())
+{
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        @foreach (string col in Model.Columns)
+        {
+          <th>@col</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var row in Model.Rows)
+      {
+        <tr>
+          @foreach (var cell in row)
+          {
+            <td>@cell</td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+
+@if (Model.Summary.Any())
+{
+  <div class="mt-3">
+    <h5>Підсумки:</h5>
+    <ul>
+      @foreach (var kv in Model.Summary)
+      {
+        <li><strong>@kv.Key:</strong> @kv.Value</li>
+      }
+    </ul>
+  </div>
+}
+<a asp-action="Index" class="btn btn-outline-secondary mt-3">Новий звіт</a>

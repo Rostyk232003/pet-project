@@ -1,0 +1,54 @@
+﻿@model LiteWebApp.Core.Entities.Product
+
+<div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Магазин</a></li>
+            <li class="breadcrumb-item active">@Model.Name</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h1 class="display-5 fw-bold">@Model.Name</h1>
+            <h3 class="text-success my-3">@Model.Price.ToString("N0") грн</h3>
+
+            <div class="card bg-light border-0 mb-4">
+                <div class="card-body">
+                    <h5>Характеристики:</h5>
+                    <table class="table table-sm mb-0">
+                        @foreach (var detail in Model.Characteristics)
+                        {
+                            <tr>
+                                <td class="text-muted" style="width: 40%">@detail.Key</td>
+                                <td class="fw-bold">@detail.Value</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+            <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                <input type="hidden" name="productId" value="@Model.Id" />
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="bi bi-cart-plus"></i> Додати в кошик
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="border-bottom pb-2">Опис товару</h4>
+            <p class="lead" style="white-space: pre-line;">@Model.Description</p>
+        </div>
+    </div>
+</div>

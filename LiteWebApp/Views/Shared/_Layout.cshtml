@@ -1,0 +1,156 @@
+﻿@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+@using LiteWebApp.ViewModels
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiteWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* Додано посилання на іконки Bootstrap *@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LiteWebApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Pet Project</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent"                      aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @* Ліва частина меню *@
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                               asp-action="Index">Головна</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product"
+                               asp-action="Index">Магазин</a>
+                        </li>
+
+                        @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="adminDropdown"
+                                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-shield-lock me-1"></i> Адмін
+                                </a>
+                                <ul class="dropdown-menu shadow-sm border-0" aria-labelledby="adminDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Admin" asp-action="Index">
+                                            <i class="bi bi-tablet me-2"></i> Товари
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Admin" asp-action="Categories">
+                                            <i class="bi bi-tags me-2"></i> Категорії
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Admin" asp-action="Orders">
+                                            <i class="bi bi-clipboard-check me-2"></i> Замовлення
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Report" asp-action="Index">
+                                            <i class="bi bi-bar-chart-line me-2"></i> Аналітика
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+
+                    @* Права частина меню: Кошик + Авторизація *@
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        @* --- БЛОК КОШИКА (завжди видимий) --- *@
+                        <li class="nav-item me-3">
+                            <a class="nav-link position-relative px-2 text-dark" asp-controller="Cart"
+                                   asp-action="Index">
+                                <i class="bi bi-cart3 fs-4"></i>
+                                @{
+                                    var sessionJson = HttpContextAccessor.HttpContext?.Session.GetString("UserCart");
+                                    var cartItems = sessionJson != null
+                                    ? JsonSerializer.Deserialize<List<CartItemViewModel>>(sessionJson)
+                                    : new List<CartItemViewModel>();
+                                    var totalCount = cartItems?.Sum(x => x.Quantity) ?? 0;
+                                }
+                                @if (totalCount > 0)
+                                {
+                                    <span class="position-absolute badge rounded-pill bg-danger"
+                                          style="font-size: 0.75rem; top: 9px; left: 88%; transform: translate(-50%, -50%); padding: 0.35em 0.60em;">
+                                        @totalCount
+                                    </span>
+                                }
+                            </a>
+                        </li>
+
+                        @* --- БЛОК АВТОРИЗАЦІЇ --- *@
+                        @if (User?.Identity?.IsAuthenticated == true)
+                        {
+                            <li class="nav-item me-2">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Profile">
+                                    <i class="bi bi-person-circle"></i> Вітаю, @User.Identity.Name!
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit"
+                                            class="nav-link btn btn-link text-danger p-0 border-0">Вихід</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Увійти</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Реєстрація</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; 2026 - MyApp - <span class="badge bg-secondary">Pet-Project</span> Магазин графічних планшетів на
+            ASP.NET Core
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+            // Автоматичне закриття всіх алертів через 3 секунди
+            document.addEventListener("DOMContentLoaded", function () {
+                setTimeout(function () {
+                    let alerts = document.querySelectorAll('.alert-dismissible');
+                    alerts.forEach(function (alert) {
+                        let bsAlert = new bootstrap.Alert(alert);
+                        bsAlert.close();
+                    });
+                }, 3000);
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+@startuml Builder
+!theme plain
+skinparam classAttributeIconSize 0
+
+' Сутність звіту (Продукт)
+class OrderReport {
+    +List<Order> FilteredOrders
+    +decimal TotalRevenue
+    +int OrdersCount
+    +DateTime GeneratedAt
+    +string Summary
+}
+
+' Інтерфейс будівельника
+interface IOrderReportBuilder {
+    +Reset() : void
+    +SetPeriod(DateTime start, DateTime end) : IOrderReportBuilder
+    +WithStatus(string status) : IOrderReportBuilder
+    +IncludeTotals() : IOrderReportBuilder
+    +GetReport() : OrderReport
+}
+
+' Конкретна реалізація будівельника
+class OrderReportBuilder {
+    -OrderReport _report
+    -List<Order> _dataSource
+    +OrderReportBuilder(List<Order> orders)
+    +Reset() : void
+    +SetPeriod(DateTime start, DateTime end) : IOrderReportBuilder
+    +WithStatus(string status) : IOrderReportBuilder
+    +IncludeTotals() : IOrderReportBuilder
+    +GetReport() : OrderReport
+}
+
+' Директор, що керує процесом збірки
+class ReportDirector {
+    -IOrderReportBuilder _builder
+    +ReportDirector(IOrderReportBuilder builder)
+    +BuildDailySuccessReport() : OrderReport
+    +BuildCustomReport(DateTime s, DateTime e, string st) : OrderReport
+}
+
+' Контролер (Клієнт)
+class AdminController {
+    -IOrderRepository _orderRepo
+    +Analytics() : Task<IActionResult>
+}
+
+' Зв'язки (Relationships)
+AdminController ..> ReportDirector : directs
+AdminController ..> OrderReportBuilder : initializes
+ReportDirector --> IOrderReportBuilder : uses
+OrderReportBuilder ..|> IOrderReportBuilder : implements
+OrderReportBuilder o-- OrderReport : constructs
+
+@enduml

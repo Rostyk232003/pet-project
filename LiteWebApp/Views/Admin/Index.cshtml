@@ -1,0 +1,79 @@
+﻿@model IEnumerable<LiteWebApp.Core.Entities.Product>
+
+@{
+    ViewData["Title"] = "Адмін-панель";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 mb-4" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill me-2 fs-5"></i>
+                    <div>@TempData["SuccessMessage"]</div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        <h2 class="mb-0">Керування магазином</h2>
+
+        @* Використовуємо d-flex та gap-2 для ідеального відступу між кнопками *@
+        <div class="d-flex gap-2">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="bi bi-plus-lg"></i> Додати товар
+            </a>
+            <a asp-action="Orders" class="btn btn-primary">
+                <i class="bi bi-cart-check me-1"></i> Переглянути замовлення
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-dark text-white py-3">
+            <h5 class="mb-0"><i class="bi bi-list-ul me-2"></i>Список товарів</h5>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 100px;" class="ps-4">Фото</th>
+                        <th>Назва</th>
+                        <th>Ціна</th>
+                        <th class="text-end pe-4">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="ps-4">
+                                <img src="@item.ImageUrl" style="width: 60px; height: 60px; object-fit: cover;" class="rounded shadow-sm border">
+                            </td>
+                            <td>
+                                <span class="fw-bold text-dark">@item.Name</span>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border">@item.Price.ToString("N0") грн</span>
+                            </td>
+                            <td class="text-end pe-4">
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="Редагувати">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;"
+                                          onsubmit="return confirm('Ви впевнені, що хочете видалити товар «@item.Name»?');">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Видалити">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

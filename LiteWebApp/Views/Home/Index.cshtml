@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Головна";
+}
+
+@* Стилі спеціально для цієї сторінки *@
+<style>
+    .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/home/hero-banner.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        border-radius: 15px;
+        margin-bottom: 40px;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        color: #0d6efd;
+        margin-bottom: 1rem;
+    }
+</style>
+
+<div class="text-center hero-section shadow">
+    <h1 class="display-4 fw-bold">Ласкаво просимо до LiteWebApp</h1>
+    <p class="lead mb-4">Сучасний інтернет-магазин графічних планшетів для творчості</p>
+    <a asp-controller="Product" asp-action="Index" class="btn btn-primary btn-lg px-4 gap-3">Перейти до магазину</a>
+</div>
+
+<div class="container">
+    <div class="row featurette align-items-center mb-5">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Про цей проект. <span class="text-muted">Навчальна ціль.</span></h2>
+            <p class="lead">
+                LiteWebApp — це повноцінний <strong>Pet-проект</strong>, створений для демонстрації навичок розробки на платформі <strong>ASP.NET Core MVC</strong>.
+                <br><br>
+                Проект імітує реальний інтернет-магазин, де користувачі можуть переглядати товари, додавати їх у кошик та оформлювати замовлення, а адміністратор має зручну панель керування контентом.
+            </p>
+        </div>
+        <div class="col-md-5">
+            @* Фото коду або технологій *@
+            <img src="/images/home/tech-stack.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded shadow" width="500" height="500" alt="Технологічний стек">
+        </div>
+    </div>
+
+    <hr class="featurette-divider mb-5">
+
+    <div class="row featurette align-items-center mb-5">
+        <div class="col-md-5 order-md-1">
+            @* Фото планшета або арту *@
+            <img src="/images/home/digital-art.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded shadow" width="500" height="500" alt="Графічний планшет">
+        </div>
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Технічні можливості. <span class="text-muted">Що тут реалізовано?</span></h2>
+            <p class="lead">В рамках цього проекту реалізовано ключові патерни веб-розробки:</p>
+            <ul class="list-group list-group-flush lead fs-6">
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Архітектура MVC та Repository Pattern</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> CRUD-операції для товарів (Адмін-панель)</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Робота з файловою системою (завантаження зображень)</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Кошик покупок та збереження замовлень у JSON</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Авторизація та аутентифікація користувачів</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-center py-4">
+        <p class="text-muted">Проект знаходиться в стадії активної розробки та вдосконалення.</p>
+    </div>
+</div>
+

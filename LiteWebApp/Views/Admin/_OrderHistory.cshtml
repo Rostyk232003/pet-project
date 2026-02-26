@@ -1,0 +1,35 @@
+@model IEnumerable<LiteWebApp.Core.Entities.OrderMemento>
+@{
+    ViewData["Title"] = "Історія змін статусу";
+}
+
+<h4 class="mb-3"><i class="bi bi-clock-history me-2"></i>Історія змін статусу</h4>
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Історія змін для цього замовлення відсутня.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Статус</th>
+                <th>Змінено</th>
+                <th>Адміністратор</th>
+                <th>Коментар</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var m in Model.OrderByDescending(x => x.ChangedAt))
+        {
+            <tr>
+                <td><span class="badge bg-secondary">@m.Status</span></td>
+                <td>@m.ChangedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@m.ChangedBy</td>
+                <td>@m.Comment</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+<a asp-action="Orders" class="btn btn-outline-secondary mt-3"><i class="bi bi-arrow-left"></i> Назад до замовлень</a>

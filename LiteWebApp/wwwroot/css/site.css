@@ -1,0 +1,50 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* Клас для обмеження висоти опису в картці товару */
+.description-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Кількість рядків, які буде видно */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Фіксована мінімальна висота, щоб усі картки були в один рядок */
+    min-height: 4.5em;
+    line-height: 1.5em;
+}
+
+/* Додатково: робимо всі картки в одному ряду однаковими по висоті */
+.product-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .product-card .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card .mt-auto {
+        margin-top: auto;
+    }

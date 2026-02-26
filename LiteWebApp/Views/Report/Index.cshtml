@@ -1,0 +1,35 @@
+@model dynamic
+@{
+  ViewData["Title"] = "Генератор звітів";
+}
+<h2>Генератор аналітичних звітів</h2>
+<form asp-action="Generate" method="post" class="mb-4">
+  <div class="mb-3">
+    <label for="template" class="form-label">Шаблон звіту</label>
+    <select id="template" name="template" class="form-select">
+      <option value="SalesByStatus">Продажі по статусу</option>
+      <option value="TopProducts">Топ-товари</option>
+      <option value="SalesDynamicsByDay">Динаміка по днях</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Період</label>
+    <div class="input-group">
+      <input type="date" name="from" class="form-control" />
+      <span class="input-group-text">—</span>
+      <input type="date" name="to" class="form-control" />
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Статуси замовлень</label>
+    <select name="statuses" class="form-select" multiple>
+      <option value="Нове">Нове</option>
+      <option value="Прийнято">Прийнято</option>
+      <option value="Відправлено">Відправлено</option>
+      <option value="Виконано">Виконано</option>
+      <option value="Скасовано">Скасовано</option>
+    </select>
+    <small class="text-muted">Можна вибрати кілька статусів</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Згенерувати звіт</button>
+</form>

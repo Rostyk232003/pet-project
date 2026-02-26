@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LiteWebApp.ViewModels.ProductListViewModel>
+
+@{
+    ViewData["Title"] = "Каталог графічних планшетів";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary">Наші графічні планшети</h2>
+        <span class="badge bg-secondary">Знайдено: @Model.Count()</span>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 transition-hover">
+                    <div class="text-center p-3">
+                        <img src="@item.ImageUrl" class="card-img-top p-3" alt="@item.Name"
+                             style="height: 250px; object-fit: contain; background-color: #f8f9fa;">
+                    </div>
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <h5 class="card-title mb-0">@item.Name</h5>
+                        </div>
+                        <span class="badge bg-info text-dark mb-2">@item.CategoryName</span>
+                        @* Додаємо клас description-truncate *@
+                        <p class="card-text text-muted small description-truncate">
+                            @item.Description
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 pb-3">
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 mb-0 text-success">@item.Price.ToString("N0") грн</span>
+                                <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Детальніше</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .transition-hover:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+</style>

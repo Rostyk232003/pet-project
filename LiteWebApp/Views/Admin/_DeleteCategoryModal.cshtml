@@ -1,0 +1,22 @@
+﻿<div class="modal fade" id="deleteCategoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content border-0 shadow">
+            <form asp-action="DeleteCategory" method="post">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">Видалення</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <input type="hidden" name="id" id="deleteCategoryId" />
+                    <p class="mb-0">Ви впевнені, що хочете видалити категорію:</p>
+                    <strong id="deleteCategoryNameDisplay"></strong>?
+                </div>
+                <div class="modal-footer justify-content-center border-0">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ні</button>
+                    <button type="submit" class="btn btn-danger">Так, видалити</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

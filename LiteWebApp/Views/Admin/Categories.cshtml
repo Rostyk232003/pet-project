@@ -1,0 +1,68 @@
+﻿@model IEnumerable<LiteWebApp.Core.Entities.Category>
+@{
+    ViewData["Title"] = "Керування категоріями";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="bi bi-tags me-2"></i>Категорії</h2>
+        <button class="btn btn-success" onclick="openCategoryModal('', '')">
+            <i class="bi bi-plus-lg"></i> Додати категорію
+        </button>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+            <i class="bi bi-check-circle me-2"></i> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+            <i class="bi bi-exclamation-triangle me-2"></i> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @* Виклик Partial Views для модалок *@
+    <partial name="_CategoryModal" />
+    <partial name="_DeleteCategoryModal" />
+
+    <div class="card shadow-sm border-0">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Назва</th>
+                    <th class="text-end pe-4">Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="ps-4 fw-bold">@item.Name</td>
+                        <td class="text-end pe-4">
+                            @* Передаємо дані прямо в JS функцію *@
+                            <button class="btn btn-sm btn-outline-primary me-1"
+                                    onclick="openCategoryModal('@item.Id', '@item.Name')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger"
+                                    onclick="openDeleteModal('@item.Id', '@item.Name')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/category-admin.js"></script>
+}
+

@@ -1,0 +1,58 @@
+﻿@model LiteWebApp.ViewModels.RegisterViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow border-0">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">📝 Реєстрація</h3>
+                    <form asp-action="Register" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="FirstName" class="form-label font-weight-bold">Ім'я</label>
+                            <input asp-for="FirstName" class="form-control" placeholder="Іван" />
+                            <span asp-validation-for="FirstName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LastName" class="form-label font-weight-bold">Прізвище</label>
+                            <input asp-for="LastName" class="form-control" placeholder="Петренко" />
+                            <span asp-validation-for="LastName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="BirthDate" class="form-label font-weight-bold">Дата народження</label>
+                            <input asp-for="BirthDate" type="date" class="form-control" />
+                            <span asp-validation-for="BirthDate" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label font-weight-bold">Email адреса</label>
+                            <input asp-for="Email" class="form-control" placeholder="example@mail.com" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label font-weight-bold">Пароль</label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label font-weight-bold">Підтвердження пароля</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 shadow-sm mt-2">Створити аккаунт</button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <a asp-action="Login" class="text-decoration-none small text-muted">Вже є аккаунт? Увійти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

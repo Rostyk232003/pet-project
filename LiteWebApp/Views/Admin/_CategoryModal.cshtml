@@ -1,0 +1,25 @@
+﻿<div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content border-0 shadow">
+            <form asp-action="SaveCategory" method="post">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="categoryModalTitle">Категорія</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="modalCategoryId" />
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Назва категорії</label>
+                        <input type="text" name="name" id="modalCategoryName" class="form-control"
+                               placeholder="Наприклад: Професійні планшети" required />
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+                    <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
