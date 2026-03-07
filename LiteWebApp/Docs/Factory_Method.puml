@@ -1,0 +1,59 @@
+@startuml FactoryMethod
+skinparam dpi 150
+skinparam shadowing false
+skinparam linetype ortho
+skinparam class {
+    BackgroundColor White
+    ArrowColor #2688d4
+    BorderColor #2688d4
+}
+
+' 1. Продукт: визначає загальний інтерфейс об’єктів
+interface IDiscountProduct {
+    +Apply(decimal price): decimal
+}
+
+' 2. Конкретні продукти: містять код різних реалізацій
+class FirstOrderDiscount implements IDiscountProduct {
+    +Apply(decimal price): decimal
+}
+
+class HolidayDiscount implements IDiscountProduct {
+    +Apply(decimal price): decimal
+}
+
+class DefaultNoDiscount implements IDiscountProduct {
+    +Apply(decimal price): decimal
+}
+
+' 3. Творець: оголошує фабричний метод та містить корисний код
+abstract class DiscountCreator {
+    ' Фабричний метод
+    {abstract} +CreateDiscount(): IDiscountProduct
+
+    ' Інший корисний код для роботи з продуктом
+    +CalculateFinalPrice(decimal amount): decimal
+}
+
+' 4. Конкретні творці: по-своєму реалізують фабричний метод
+class FirstOrderCreator extends DiscountCreator {
+    +CreateDiscount(): IDiscountProduct
+}
+
+class HolidayCreator extends DiscountCreator {
+    +CreateDiscount(): IDiscountProduct
+}
+
+class DefaultCreator extends DiscountCreator {
+    +CreateDiscount(): IDiscountProduct
+}
+
+' Зв'язки залежності (Creator знає тільки про інтерфейс Product)
+DiscountCreator ..> IDiscountProduct : "працює з"
+
+' Зв'язки створення (Concrete Creators виробляють Concrete Products)
+FirstOrderCreator ..> FirstOrderDiscount : "<<створює>>"
+HolidayCreator ..> HolidayDiscount : "<<створює>>"
+DefaultCreator ..> DefaultNoDiscount : "<<створює>>"
+
+@enduml

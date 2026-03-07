@@ -63,7 +63,13 @@
                                     <span class="badge @statusClass rounded-pill">@order.Status</span>
                                 </div>
                                 <div class="text-end">
-                                    <span class="fw-bold text-dark">@order.TotalAmount.ToString("N0") грн</span>
+                                    <span class="fw-bold text-dark">
+                                        @(order.DiscountedTotal > 0 ? order.DiscountedTotal.ToString("N0") : order.TotalAmount.ToString("N0")) грн
+                                    </span>
+                                    @if (order.DiscountedTotal > 0 && order.DiscountedTotal < order.TotalAmount)
+                                    {
+                                        <span class="d-block small text-danger">(знижка: @((order.TotalAmount - order.DiscountedTotal).ToString("N0")) грн)</span>
+                                    }
                                     <span class="d-block small text-muted">@order.CustomerName</span>
                                 </div>
                             </div>
@@ -175,8 +181,10 @@
                                     </tbody>
                                     <tfoot>
                                         <tr class="table-light">
-                                            <td colspan="4" class="text-end fw-bold">Загальна сума:</td>
-                                            <td class="text-end fw-bold text-primary fs-5">@order.TotalAmount.ToString("N0") грн</td>
+                                            <td colspan="4" class="text-end fw-bold">Загальна сума до сплати:</td>
+                                            <td class="text-end fw-bold text-primary fs-5">
+                                                @(order.DiscountedTotal > 0 ? order.DiscountedTotal.ToString("N0") : order.TotalAmount.ToString("N0")) грн
+                                            </td>
                                         </tr>
                                     </tfoot>
                                 </table>

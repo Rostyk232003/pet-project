@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|solutionrelative:litewebapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|d:\\litewebapp_chain\\litewebapp\\infrastructure\\handlers\\specifichandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|solutionrelative:litewebapp\\infrastructure\\handlers\\specifichandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|d:\\litewebapp_chain\\litewebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|solutionrelative:litewebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|d:\\litewebapp_chain\\litewebapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|solutionrelative:litewebapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|d:\\litewebapp_chain\\litewebapp\\infrastructure\\handlers\\specifichandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|solutionrelative:litewebapp\\infrastructure\\handlers\\specifichandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C9AB965-71AB-40B5-9362-424C427573DF}|LiteWebApp\\LiteWebApp.csproj|d:\\litewebapp_chain\\litewebapp\\infrastructure\\handlers\\basehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,53 +55,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "LiteWebApp\\Program.cs",
+              "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Program.cs",
+              "RelativeToolTip": "LiteWebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T13:47:59.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SpecificHandlers.cs",
               "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\SpecificHandlers.cs",
               "RelativeDocumentMoniker": "LiteWebApp\\Infrastructure\\Handlers\\SpecificHandlers.cs",
               "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\SpecificHandlers.cs",
               "RelativeToolTip": "LiteWebApp\\Infrastructure\\Handlers\\SpecificHandlers.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwAQAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T11:05:48.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BaseHandler.cs",
               "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\BaseHandler.cs",
               "RelativeDocumentMoniker": "LiteWebApp\\Infrastructure\\Handlers\\BaseHandler.cs",
               "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\BaseHandler.cs",
               "RelativeToolTip": "LiteWebApp\\Infrastructure\\Handlers\\BaseHandler.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T11:05:25.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IHandler.cs",
               "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\IHandler.cs",
               "RelativeDocumentMoniker": "LiteWebApp\\Infrastructure\\Handlers\\IHandler.cs",
               "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\IHandler.cs",
               "RelativeToolTip": "LiteWebApp\\Infrastructure\\Handlers\\IHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T11:04:59.701Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Core\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "LiteWebApp\\Core\\Entities\\User.cs",
-              "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Core\\Entities\\User.cs",
-              "RelativeToolTip": "LiteWebApp\\Core\\Entities\\User.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T11:04:07.101Z",
               "EditorCaption": ""
             },
             {
@@ -108,7 +112,7 @@
               "RelativeDocumentMoniker": "LiteWebApp\\Controllers\\CartController.cs",
               "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Controllers\\CartController.cs",
               "RelativeToolTip": "LiteWebApp\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAwwM0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAswM0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T11:03:06.939Z",
               "EditorCaption": ""
@@ -121,9 +125,22 @@
               "RelativeDocumentMoniker": "LiteWebApp\\Controllers\\AdminController.cs",
               "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Controllers\\AdminController.cs",
               "RelativeToolTip": "LiteWebApp\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAIwFUAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T10:59:13.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Core\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "LiteWebApp\\Core\\Entities\\User.cs",
+              "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Core\\Entities\\User.cs",
+              "RelativeToolTip": "LiteWebApp\\Core\\Entities\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T11:04:07.101Z",
               "EditorCaption": ""
             }
           ]

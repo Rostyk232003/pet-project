@@ -1,5 +1,313 @@
 [
   {
+    "Id": "1e296593-a0dd-41f7-b7bb-ec0651f8fd55",
+    "OrderDate": "2026-03-04T15:51:26.664572+02:00",
+    "CustomerEmail": "admin@test.com",
+    "CustomerName": "\u0406\u0432\u0430\u043D \u041A\u0430\u0440\u043F\u0435\u043D\u043A\u043E",
+    "Phone": "\u002B380970459300",
+    "Address": "\u0412\u0443\u043B\u0438\u0446\u044F \u0414\u043E\u0432\u0431\u0443\u0448\u0430 \u0411\u0443\u0434\u0438\u043D\u043E\u043A 10",
+    "Comment": null,
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 10999
+      }
+    ],
+    "TotalAmount": 10999,
+    "DiscountedTotal": 9899.1,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "cc3fdd59-d25f-4c42-924d-5a5e46145bb5",
+    "OrderDate": "2026-03-02T23:21:43.5651642+02:00",
+    "CustomerEmail": "admin@test.com",
+    "CustomerName": "\u0406\u0432\u0430\u043D \u041A\u0430\u0440\u043F\u0435\u043D\u043A\u043E",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": null,
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 10999
+      }
+    ],
+    "TotalAmount": 10999,
+    "DiscountedTotal": 9899.1,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "21c19973-1e17-4238-97e1-972791419908",
+    "OrderDate": "2026-03-02T22:48:22.7424537+02:00",
+    "CustomerEmail": "admin@test.com",
+    "CustomerName": "\u0406\u0432\u0430\u043D \u041A\u0430\u0440\u043F\u0435\u043D\u043A\u043E",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "111",
+    "Items": [
+      {
+        "ProductId": "e4eaa784-5dee-4b8c-bfba-b4149b4d1165",
+        "ProductName": "Bosto BT-16HD",
+        "Price": 18999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/e80a36_Bosto_BT_16HD.jpg",
+        "Total": 18999
+      }
+    ],
+    "TotalAmount": 18999,
+    "DiscountedTotal": 17099.1,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "061d593d-f55a-4622-b078-4cf1db6707f0",
+    "OrderDate": "2026-03-02T22:47:43.9909819+02:00",
+    "CustomerEmail": "admin@test.com",
+    "CustomerName": "\u0406\u0432\u0430\u043D \u041A\u0430\u0440\u043F\u0435\u043D\u043A\u043E",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "1111",
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 10999
+      }
+    ],
+    "TotalAmount": 10999,
+    "DiscountedTotal": 10999,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "0d7fa81f-0c86-42f9-869c-33d51caa5efe",
+    "OrderDate": "2026-03-02T22:46:05.7408463+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "7",
+    "Items": [
+      {
+        "ProductId": "d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+        "ProductName": "Wacom Intuos Pro",
+        "Price": 12500.0,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/wacom_intus_pro.jpg",
+        "Total": 12500.0
+      }
+    ],
+    "TotalAmount": 12500.0,
+    "DiscountedTotal": 11250.00,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "6f6cc6b9-9743-4d1f-8754-1e79adedad32",
+    "OrderDate": "2026-03-02T22:40:13.6411351+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "6",
+    "Items": [
+      {
+        "ProductId": "e4eaa784-5dee-4b8c-bfba-b4149b4d1165",
+        "ProductName": "Bosto BT-16HD",
+        "Price": 18999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/e80a36_Bosto_BT_16HD.jpg",
+        "Total": 18999
+      }
+    ],
+    "TotalAmount": 18999,
+    "DiscountedTotal": 17099.1,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "4331577f-4686-4223-a8b3-a897da3b79f6",
+    "OrderDate": "2026-03-02T22:36:48.2061242+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "5",
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 10999
+      }
+    ],
+    "TotalAmount": 10999,
+    "DiscountedTotal": 10999,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "6f0edab9-e8ae-442b-acc3-46bda906a3ec",
+    "OrderDate": "2026-03-02T22:32:56.1884383+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "3",
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 4,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 43996
+      }
+    ],
+    "TotalAmount": 43996,
+    "DiscountedTotal": 43996,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "83784059-75ee-4ad4-aab3-3141b387f5da",
+    "OrderDate": "2026-03-02T22:20:18.5840804+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "2",
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 5,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 54995
+      }
+    ],
+    "TotalAmount": 54995,
+    "DiscountedTotal": 54995,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "e134d4a7-bf5a-418b-a4ed-090e2e9fcfc2",
+    "OrderDate": "2026-03-02T22:07:13.2797583+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": null,
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 5,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 54995
+      }
+    ],
+    "TotalAmount": 54995,
+    "DiscountedTotal": 54995,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "bfae9bf0-0281-479b-a1d8-a5e8eae7b90c",
+    "OrderDate": "2026-03-02T21:54:26.428651+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21162",
+    "Comment": "1",
+    "Items": [
+      {
+        "ProductId": "e4eaa784-5dee-4b8c-bfba-b4149b4d1165",
+        "ProductName": "Bosto BT-16HD",
+        "Price": 18999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/e80a36_Bosto_BT_16HD.jpg",
+        "Total": 18999
+      }
+    ],
+    "TotalAmount": 18999,
+    "DiscountedTotal": 0,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "4e0e7263-f845-4666-acc8-9e02067b9766",
+    "OrderDate": "2026-03-02T21:51:49.7484635+02:00",
+    "CustomerEmail": "admin@test.com",
+    "CustomerName": "\u0406\u0432\u0430\u043D \u041A\u0430\u0440\u043F\u0435\u043D\u043A\u043E",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "1",
+    "Items": [
+      {
+        "ProductId": "d28888e9-2ba9-473a-a40f-e38cb54f9b35",
+        "ProductName": "Wacom Intuos Pro",
+        "Price": 12500.0,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/wacom_intus_pro.jpg",
+        "Total": 12500.0
+      }
+    ],
+    "TotalAmount": 12500.0,
+    "DiscountedTotal": 0,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "712ee9ce-3dcb-46eb-be0f-1266507b986e",
+    "OrderDate": "2026-03-02T21:50:35.2664773+02:00",
+    "CustomerEmail": "admin@test.com",
+    "CustomerName": "\u0406\u0432\u0430\u043D \u041A\u0430\u0440\u043F\u0435\u043D\u043A\u043E",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "S",
+    "Items": [
+      {
+        "ProductId": "e4eaa784-5dee-4b8c-bfba-b4149b4d1165",
+        "ProductName": "Bosto BT-16HD",
+        "Price": 18999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/e80a36_Bosto_BT_16HD.jpg",
+        "Total": 18999
+      }
+    ],
+    "TotalAmount": 18999,
+    "DiscountedTotal": 0,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "851e5395-5325-482a-bd59-70d25e9a9829",
+    "OrderDate": "2026-03-02T18:48:27.9325414+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459301",
+    "Address": "\u0411\u0443\u0440\u0448\u0442\u0438\u043D, \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F \u21161",
+    "Comment": "e3d",
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 10999
+      }
+    ],
+    "TotalAmount": 10999,
+    "DiscountedTotal": 0,
+    "Status": "\u0421\u043A\u0430\u0441\u043E\u0432\u0430\u043D\u043E"
+  },
+  {
     "Id": "b5f4f070-d7fb-4c9c-9eb0-3543df315394",
     "OrderDate": "2026-02-16T17:43:55.1246854+02:00",
     "CustomerEmail": "user2@test.com",
@@ -18,6 +326,7 @@
       }
     ],
     "TotalAmount": 37998,
+    "DiscountedTotal": 0,
     "Status": "\u041F\u0440\u0438\u0439\u043D\u044F\u0442\u043E"
   },
   {
@@ -39,6 +348,7 @@
       }
     ],
     "TotalAmount": 54995,
+    "DiscountedTotal": 0,
     "Status": "\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E"
   },
   {
@@ -60,6 +370,7 @@
       }
     ],
     "TotalAmount": 10999,
+    "DiscountedTotal": 0,
     "Status": "\u041F\u0440\u0438\u0439\u043D\u044F\u0442\u043E"
   },
   {
@@ -81,6 +392,7 @@
       }
     ],
     "TotalAmount": 12500.0,
+    "DiscountedTotal": 0,
     "Status": "\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E"
   },
   {
@@ -102,6 +414,7 @@
       }
     ],
     "TotalAmount": 10999,
+    "DiscountedTotal": 0,
     "Status": "\u041D\u043E\u0432\u0435"
   },
   {
@@ -131,6 +444,7 @@
       }
     ],
     "TotalAmount": 70995,
+    "DiscountedTotal": 0,
     "Status": "\u041D\u043E\u0432\u0435"
   },
   {
@@ -160,6 +474,7 @@
       }
     ],
     "TotalAmount": 23397,
+    "DiscountedTotal": 0,
     "Status": "\u041F\u0440\u0438\u0439\u043D\u044F\u0442\u043E"
   },
   {
@@ -189,6 +504,7 @@
       }
     ],
     "TotalAmount": 50498.0,
+    "DiscountedTotal": 0,
     "Status": "\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E"
   },
   {
@@ -218,6 +534,29 @@
       }
     ],
     "TotalAmount": 23499.0,
+    "DiscountedTotal": 0,
+    "Status": "\u041D\u043E\u0432\u0435"
+  },
+  {
+    "Id": "74cc1889-889e-46e0-9db3-eaa95bbfb2e8",
+    "OrderDate": "2026-03-04T15:52:40.6888139+02:00",
+    "CustomerEmail": "user2@test.com",
+    "CustomerName": "\u0422\u0430\u0440\u0430\u0441 \u0411\u0443\u043B\u044C\u0431\u0430",
+    "Phone": "\u002B380970459300",
+    "Address": "\u0412\u0443\u043B\u0438\u0446\u044F \u0414\u043E\u0432\u0431\u0443\u0448\u0430 \u0411\u0443\u0434\u0438\u043D\u043E\u043A 10",
+    "Comment": null,
+    "Items": [
+      {
+        "ProductId": "176a1e19-c89e-4833-8172-39ce2197786e",
+        "ProductName": "Huion Inspiroy H431P",
+        "Price": 10999,
+        "Quantity": 1,
+        "ImageUrl": "/images/products/7ebb54_huion_inspiroy_H430P.jpg",
+        "Total": 10999
+      }
+    ],
+    "TotalAmount": 10999,
+    "DiscountedTotal": 10999,
     "Status": "\u041D\u043E\u0432\u0435"
   }
 ]

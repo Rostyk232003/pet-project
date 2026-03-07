@@ -1,4 +1,5 @@
-﻿using LiteWebApp.Core.Entities;
+﻿using LiteWebApp.Core.Discounts;
+using LiteWebApp.Core.Entities;
 using LiteWebApp.Core.Interfaces;
 using LiteWebApp.Infrastructure.Handlers;
 using LiteWebApp.ViewModels;
@@ -112,8 +113,9 @@ namespace LiteWebApp.Controllers
         public async Task<IActionResult> Checkout()
         {
             // 1. Отримуємо поточного користувача за його Email
-            var email = User.Identity?.Name;
-            var user = (await _userRepository.GetAllAsync()).FirstOrDefault(u => u.Email == email);
+            // PROMPT v3.1.4: ToT-рефакторинг Factory Method (Checkout)
+            string? email = User.Identity?.Name;
+            User? user = (await _userRepository.GetAllAsync()).FirstOrDefault(u => u.Email == email);
 
             // 2. Перевірка через ланцюжок (Дія: CHECKOUT)
             // Якщо користувач гість — ланцюжок поверне false
@@ -123,24 +125,54 @@ namespace LiteWebApp.Controllers
                 return RedirectToAction("AccessDenied", "Account");
             }
 
-            var cart = GetCartFromSession();
+            List<CartItemViewModel> cart = GetCartFromSession();
             if (!cart.Any()) return RedirectToAction("Index");
+
+            // --- Вибір типу знижки ---
+            decimal discountAmount = 0;
+            string discountType = string.Empty;
+            decimal finalTotal = cart.Sum(x => x.Total);
+
+            int orderCount = user != null ? (await _orderRepository.GetAllOrdersAsync()).Count(o => o.CustomerEmail == user.Email) : 0;
+            DateTime today = DateTime.Today;
+            LiteWebApp.Core.Discounts.DiscountCreator discountCreator;
+            if (user != null && user.BirthDate.HasValue && user.BirthDate.Value.Month == today.Month && user.BirthDate.Value.Day == today.Day)
+            {
+                // День народження — 10% знижка
+                discountCreator = new Core.Discounts.HolidayCreator(10);
+                discountType = "Знижка до дня народження (10%)";
+            }
+            else if (user != null && orderCount == 0)
+            {
+                // Перше замовлення — 100 грн знижка
+                discountCreator = new Core.Discounts.FirstOrderCreator(100);
+                discountType = "Знижка на перше замовлення (100 грн)";
+            }
+            else
+            {
+                discountCreator = new Core.Discounts.DefaultCreator();
+                discountType = "Без знижки";
+            }
+            finalTotal = discountCreator.CalculateFinalPrice(cart.Sum(x => x.Total));
+            discountAmount = cart.Sum(x => x.Total) - finalTotal;
 
             var model = new CheckoutViewModel
             {
                 CartItems = cart,
-                // Передзаповнення імені, якщо користувач авторизований
-                FullName = user != null ? $"{user.FirstName} {user.LastName}" : ""
+                FullName = user != null ? $"{user.FirstName} {user.LastName}" : "",
+                DiscountAmount = discountAmount,
+                DiscountType = discountType,
+                FinalTotal = finalTotal
             };
-
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> Checkout(CheckoutViewModel model)
         {
-            var email = User.Identity?.Name;
-            var user = (await _userRepository.GetAllAsync()).FirstOrDefault(u => u.Email == email);
+            // PROMPT v3.1.4: ToT-рефакторинг Factory Method (Checkout POST)
+            string? email = User.Identity?.Name;
+            User? user = (await _userRepository.GetAllAsync()).FirstOrDefault(u => u.Email == email);
 
             // Повторна перевірка безпеки ланцюжком
             if (!_permissionChain.Handle(user, "CHECKOUT"))
@@ -149,15 +181,46 @@ namespace LiteWebApp.Controllers
                 return RedirectToAction("AccessDenied", "Account");
             }
 
-            var cart = GetCartFromSession();
+            List<CartItemViewModel> cart = GetCartFromSession();
             if (!cart.Any())
             {
                 ModelState.AddModelError("", "Ваш кошик порожній");
                 return RedirectToAction("Index");
             }
 
+            // --- Повторний розрахунок знижки для коректного запису ---
+            decimal discountAmount = 0;
+            string discountType = string.Empty;
+            decimal finalTotal = cart.Sum(x => x.Total);
+
+            int orderCount = user != null ? (await _orderRepository.GetAllOrdersAsync()).Count(o => o.CustomerEmail == user.Email) : 0;
+            DateTime today = DateTime.Today;
+            LiteWebApp.Core.Discounts.DiscountCreator discountCreator;
+            if (user != null && user.BirthDate.HasValue && user.BirthDate.Value.Month == today.Month && user.BirthDate.Value.Day == today.Day)
+            {
+                discountCreator = new Core.Discounts.HolidayCreator(10);
+                discountType = "Знижка до дня народження (10%)";
+            }
+            else if (user != null && orderCount == 0)
+            {
+                discountCreator = new Core.Discounts.FirstOrderCreator(100);
+                discountType = "Знижка на перше замовлення (100 грн)";
+            }
+            else
+            {
+                discountCreator = new Core.Discounts.DefaultCreator();
+                discountType = "Без знижки";
+            }
+            finalTotal = discountCreator.CalculateFinalPrice(cart.Sum(x => x.Total));
+            discountAmount = cart.Sum(x => x.Total) - finalTotal;
+
             if (ModelState.IsValid)
             {
+                decimal total = cart.Sum(x => x.Total);
+                decimal discounted = (discountAmount > 0 && finalTotal > 0 && finalTotal < total)
+                    ? finalTotal
+                    : total;
+
                 var order = new Order
                 {
                     CustomerEmail = user?.Email ?? string.Empty,
@@ -166,7 +229,8 @@ namespace LiteWebApp.Controllers
                     Address = model.DeliveryAddress,
                     Comment = model.Comment,
                     Items = cart,
-                    TotalAmount = cart.Sum(x => x.Total),
+                    TotalAmount = total,
+                    DiscountedTotal = discounted,
                     OrderDate = DateTime.Now,
                     Status = "Нове"
                 };
@@ -179,6 +243,10 @@ namespace LiteWebApp.Controllers
             }
 
             model.CartItems = cart;
+            // Для View — оновити поля знижки
+            model.DiscountAmount = discountAmount;
+            model.DiscountType = discountType;
+            model.FinalTotal = finalTotal;
             return View(model);
         }
 

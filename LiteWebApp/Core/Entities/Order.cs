@@ -17,6 +17,8 @@ namespace LiteWebApp.Core.Entities
         // Товари та гроші
         public List<CartItemViewModel> Items { get; set; } = new();
         public decimal TotalAmount { get; set; }
+        // v3.1.1: Сума зі знижкою
+        public decimal DiscountedTotal { get; set; }
         public string Status { get; set; } = "Нове"; // Статус для адміна
         // PROMPT v1.0: Memento
         public OrderMemento CreateMemento(string adminEmail, string comment)

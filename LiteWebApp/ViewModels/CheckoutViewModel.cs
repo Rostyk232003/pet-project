@@ -19,5 +19,10 @@ namespace LiteWebApp.ViewModels
         // Список товарів для перегляду під час оформлення
         public List<CartItemViewModel> CartItems { get; set; } = new();
         public decimal GrandTotal => CartItems.Sum(x => x.Total);
+
+        // --- ДЛЯ ВІДОБРАЖЕННЯ ЗНИЖКИ ---
+        public decimal DiscountAmount { get; set; }
+        public string DiscountType { get; set; } = "";
+        public decimal FinalTotal { get; set; }
     }
 }

@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,19 +54,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Program.cs",
-              "RelativeDocumentMoniker": "LiteWebApp\\Program.cs",
-              "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Program.cs",
-              "RelativeToolTip": "LiteWebApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T13:47:59.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "SpecificHandlers.cs",
               "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Infrastructure\\Handlers\\SpecificHandlers.cs",
@@ -75,8 +62,7 @@
               "RelativeToolTip": "LiteWebApp\\Infrastructure\\Handlers\\SpecificHandlers.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T11:05:48.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T11:05:48.584Z"
             },
             {
               "$type": "Document",
@@ -88,8 +74,7 @@
               "RelativeToolTip": "LiteWebApp\\Infrastructure\\Handlers\\BaseHandler.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T11:05:25.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T11:05:25.021Z"
             },
             {
               "$type": "Document",
@@ -101,8 +86,7 @@
               "RelativeToolTip": "LiteWebApp\\Infrastructure\\Handlers\\IHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T11:04:59.701Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T11:04:59.701Z"
             },
             {
               "$type": "Document",
@@ -114,8 +98,7 @@
               "RelativeToolTip": "LiteWebApp\\Controllers\\CartController.cs",
               "ViewState": "AgIAAG4AAAAAAAAAAAAswM0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T11:03:06.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T11:03:06.939Z"
             },
             {
               "$type": "Document",
@@ -127,8 +110,19 @@
               "RelativeToolTip": "LiteWebApp\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T10:59:13.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T10:59:13.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\LiteWebApp_chain\\LiteWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "LiteWebApp\\Program.cs",
+              "ToolTip": "D:\\LiteWebApp_chain\\LiteWebApp\\Program.cs",
+              "RelativeToolTip": "LiteWebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T13:47:59.433Z"
             },
             {
               "$type": "Document",
@@ -140,8 +134,7 @@
               "RelativeToolTip": "LiteWebApp\\Core\\Entities\\User.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T11:04:07.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T11:04:07.101Z"
             }
           ]
         }

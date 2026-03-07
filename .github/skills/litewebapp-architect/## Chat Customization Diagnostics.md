@@ -9,13 +9,13 @@ User Data<br>
 Extension: GitHub.copilot-chat<br>
 └─ [`Plan.agent.md`](C%3A/Users/TUF-GAMING/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/plan-agent/Plan.agent.md)<br>
 
+copilot-instructions.md<br>
+
 **Instructions**<br>
 *1 file loaded*
 
-.github/instructions<br>
-User Data<br>
-copilot-instructions.md<br>
-└─ [`copilot-instructions.md`](.github/copilot-instructions.md)<br>
+.github/copilot-instructions.md<br>
+└─ [copilot-instructions.md](../../copilot-instructions.md)<br>
 
 **Prompt Files**<br>
 *3 files loaded*
@@ -31,9 +31,4 @@ Extension: GitHub.copilot-chat<br>
 *1 skill loaded*
 
 .github/skills<br>
-.agents/skills<br>
-.claude/skills<br>
-~/.copilot/skills<br>
-└─ [`it-engineer-toolkit`](c%3A/Users/TUF-GAMING/.copilot/skills/it-engineer-toolkit/SKILL.md)<br>
-~/.agents/skills<br>
-~/.claude/skills<br>
+└─ [litewebapp-architect.yaml](litewebapp-architect.yaml)<br>
