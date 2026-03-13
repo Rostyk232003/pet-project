@@ -24,7 +24,13 @@ builder.Services.AddScoped<IHandler>(sp =>
 // ����������� �� Singleton (���� ��������� � ��� �� SemaphoreSlim)
 builder.Services.AddSingleton<IUserRepository, JsonUserRepository>();
 builder.Services.AddScoped<ICategoryRepository, JsonCategoryRepository>();
-builder.Services.AddScoped<IProductRepository, JsonProductRepository>();
+// PROMPT v4.0: DI Proxy для IProductRepository
+builder.Services.AddScoped<IProductRepository>(sp =>
+{
+    var realRepo = sp.GetRequiredService<JsonProductRepository>();
+    return new ProductRepositoryProxy(realRepo);
+});
+builder.Services.AddScoped<JsonProductRepository>();
 builder.Services.AddScoped<IOrderRepository, JsonOrderRepository>();
 
 // Реєстрація OrderHistoryRepository для IOrderHistoryRepository

@@ -1,0 +1,47 @@
+// PROMPT v4.0: UML Proxy кешування продуктів
+@startuml ProxyPattern
+skinparam class {
+    BackgroundColor White
+    ArrowColor #2688d4
+    BorderColor #2688d4
+}
+
+' Subject
+interface IProductRepository {
+    +List<Product> GetAllProducts()
+    +Product GetProductById(int id)
+}
+
+' RealSubject
+class JsonProductRepository implements IProductRepository {
+    +List<Product> GetAllProducts()
+    +Product GetProductById(int id)
+}
+
+' Proxy
+class ProductRepositoryProxy implements IProductRepository {
+    -cache : List<Product>
+    -cacheTTL : DateTime
+    -realRepository : IProductRepository
+    +List<Product> GetAllProducts()
+    +Product GetProductById(int id)
+}
+
+' Entity
+class Product {
+    +int Id
+    +string Name
+    +decimal Price
+}
+
+' Client
+class Client {
+    -repository : IProductRepository
+    +void UseRepository()
+}
+
+Client --> IProductRepository : "використовує"
+ProductRepositoryProxy o-- IProductRepository : "огортає (realSubject)"
+JsonProductRepository ..> Product : "повертає"
+
+@enduml
