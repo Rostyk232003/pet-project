@@ -1,3 +1,4 @@
+using LiteWebApp.Helpers;
 using LiteWebApp.Core.Entities;
 using LiteWebApp.Core.Interfaces;
 using LiteWebApp.Infrastructure.Data;
@@ -24,13 +25,24 @@ builder.Services.AddScoped<IHandler>(sp =>
 // ����������� �� Singleton (���� ��������� � ��� �� SemaphoreSlim)
 builder.Services.AddSingleton<IUserRepository, JsonUserRepository>();
 builder.Services.AddScoped<ICategoryRepository, JsonCategoryRepository>();
-// PROMPT v4.0: DI Proxy для IProductRepository
-builder.Services.AddScoped<IProductRepository>(sp =>
+
+builder.Services.AddSingleton<JsonProductRepository>();
+// PROMPT v4.1.1: Configurable TTL
+
+builder.Services.AddSingleton<JsonProductRepository>();
+builder.Services.AddSingleton<IProductRepository>(sp =>
 {
-    var realRepo = sp.GetRequiredService<JsonProductRepository>();
-    return new ProductRepositoryProxy(realRepo);
+    JsonProductRepository realRepo = sp.GetRequiredService<JsonProductRepository>();
+    IConfiguration config = sp.GetRequiredService<IConfiguration>();
+    int cacheMinutes;
+    string? ttlString = config.GetSection(Constants.CacheSettingsSection)[Constants.ProductCacheTTLKey];
+    if (!int.TryParse(ttlString, out cacheMinutes) || cacheMinutes <= 0)
+    {
+        cacheMinutes = Constants.DefaultProductCacheTTLMinutes;
+    }
+    TimeSpan cacheTTL = TimeSpan.FromMinutes(cacheMinutes);
+    return new ProductRepositoryProxy(realRepo, cacheTTL);
 });
-builder.Services.AddScoped<JsonProductRepository>();
 builder.Services.AddScoped<IOrderRepository, JsonOrderRepository>();
 
 // Реєстрація OrderHistoryRepository для IOrderHistoryRepository

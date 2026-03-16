@@ -18,10 +18,11 @@ namespace LiteWebApp.Infrastructure.Data
     private readonly TimeSpan _cacheTTL;
     private readonly SemaphoreSlim _semaphore = new(1, 1);
 
-    public ProductRepositoryProxy(IProductRepository realRepository, TimeSpan? cacheTTL = null)
+    // PROMPT v4.1.1: Configurable TTL
+    public ProductRepositoryProxy(IProductRepository realRepository, TimeSpan cacheTTL)
     {
       _realRepository = realRepository;
-      _cacheTTL = cacheTTL ?? TimeSpan.FromMinutes(5);
+      _cacheTTL = cacheTTL;
       _cache = null;
       _cacheTime = DateTime.MinValue;
     }

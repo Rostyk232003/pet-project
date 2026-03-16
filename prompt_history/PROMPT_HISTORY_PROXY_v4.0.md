@@ -1,5 +1,33 @@
 // PROMPT_HISTORY_PROXY_v4.0.md
 
+
+## PROMPT v4.1.1 [Активна] — Конфігурація TTL через appsettings.json
+
+**Дата:** 14.03.2026
+
+### Опис змін (v4.1.1)
+- TTL кешу для ProductRepositoryProxy тепер конфігурується через appsettings.json (секція CacheSettings:ProductCacheTTL).
+- Додано файл Helpers/Constants.cs з константами для ключів конфігурації та дефолтного TTL.
+- DI-реєстрація ProductRepositoryProxy та JsonProductRepository змінена на AddSingleton (кеш зберігається між запитами).
+- TTL зчитується у Program.cs напряму через IConfiguration, fallback — дефолтне значення з Helpers/Constants.cs.
+- Всі зміни позначені inline-міткою // PROMPT v4.1.1: Configurable TTL.
+
+### Які помилки виникали та як виправляли
+- **CS1529**: using LiteWebApp.Helpers; був розміщений не на початку файлу Program.cs. Виправлено — перенесено всі using-и на верхівку файлу, зайві using-и видалено.
+- **CS0122**: "Constants" недоступен из-за его уровня защиты. Причина — зайвий using LiteWebApp.Helpers; у середині файлу, який спричиняв конфлікт. Виправлено — залишено лише один using на початку.
+
+### Змінені/створені файли
+- LiteWebApp/appsettings.json — додано секцію CacheSettings.
+- LiteWebApp/Helpers/Constants.cs — створено файл з константами.
+- LiteWebApp/Program.cs — DI, зчитування TTL, Singleton, виправлення using.
+- LiteWebApp/Infrastructure/Data/ProductRepositoryProxy.cs — оновлено конструктор, inline-мітка.
+
+### Edge-кейси
+- Якщо в appsettings.json відсутній або некоректний CacheSettings:ProductCacheTTL (null, 0, від’ємне, не число) — використовується дефолтне значення з Helpers/Constants.cs (5 хвилин).
+
+### Статус: [Активна]
+---
+
 [Активна]
 ---
 
@@ -101,3 +129,4 @@ Proxy обгортає ProductRepository, зберігає дані у RAM, пр
 - Оновлення unit-тестів (за потреби)
 
 ---
+
