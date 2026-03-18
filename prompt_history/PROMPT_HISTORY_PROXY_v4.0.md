@@ -130,3 +130,35 @@ Proxy обгортає ProductRepository, зберігає дані у RAM, пр
 
 ---
 
+## PROMPT v4.2.0 [Активна] — Ініціалізація та реалізація юніт‑тестів для ProductRepositoryProxy
+
+**Дата:** 16.03.2026
+
+### 1. Налаштування тестового проекту
+- Створено окремий проект LiteWebApp.Tests на одному рівні з основним LiteWebApp/.
+- Додано LiteWebApp.Tests у основний solution LiteWebApp.sln.
+- Додано ProjectReference на LiteWebApp.csproj для доступу до коду основного проекту.
+- Підключено пакет Moq для мокування залежностей (IProductRepository).
+- Встановлено NUnit як фреймворк для тестування.
+- Додано базовий тест для перевірки коректності налаштування.
+
+### 2. План тестування (ToT)
+1. Перевірка кешування (TTL):
+   - Повернення даних з кешу при повторних запитах до GetAllAsync.
+   - Оновлення кешу після TTL (імітація часу, перевірка повторного звернення до реального репозиторію).
+2. Інвалідція кешу:
+   - Кеш скидається після AddAsync, UpdateAsync, DeleteAsync.
+3. Асинхронність та потокобезпечність:
+   - Паралельні запити до GetAllAsync не призводять до race condition (Task.WhenAll).
+4. Fallback TTL:
+   - Якщо TTL не передано (або некоректне/нульове), використовується дефолтне значення з Helpers/Constants.
+5. Коректність роботи з порожнім репозиторієм:
+   - Повертається порожній список, якщо в джерелі немає продуктів.
+6. Перевірка GetByIdAsync:
+   - Повертає правильний продукт за Id, або null якщо не знайдено.
+
+### 3. Які файли були створені/змінені
+- LiteWebApp.Tests/ProductRepositoryProxyTests.cs — створено повний набір юніт‑тестів для ProductRepositoryProxy.
+- LiteWebApp.Tests/LiteWebApp.Tests.csproj — ініціалізовано проект, додано Moq, NUnit, ProjectReference.
+- LiteWebApp.sln — додано посилання на тестовий проект.
+- LiteWebApp/Infrastructure/Data/ProductRepositoryProxy.cs — внесено зміни для підтримки fallback TTL через константу.

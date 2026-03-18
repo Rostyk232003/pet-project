@@ -18,11 +18,18 @@ namespace LiteWebApp.Infrastructure.Data
     private readonly TimeSpan _cacheTTL;
     private readonly SemaphoreSlim _semaphore = new(1, 1);
 
-    // PROMPT v4.1.1: Configurable TTL
+    // PROMPT v4.2.1: Fallback TTL через константу
     public ProductRepositoryProxy(IProductRepository realRepository, TimeSpan cacheTTL)
     {
       _realRepository = realRepository;
-      _cacheTTL = cacheTTL;
+      if (cacheTTL <= TimeSpan.Zero)
+      {
+        _cacheTTL = TimeSpan.FromMinutes(Helpers.Constants.DefaultProductCacheTTLMinutes);
+      }
+      else
+      {
+        _cacheTTL = cacheTTL;
+      }
       _cache = null;
       _cacheTime = DateTime.MinValue;
     }
